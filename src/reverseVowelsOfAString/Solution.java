@@ -6,30 +6,28 @@ class Solution {
 
     public static void main(String[]args){
         Solution s = new Solution();
-        String reversed = s.reverseVowels("Voicemail");
+        String reversed = s.reverseVowels("helloyou");
         System.out.println(reversed);
     }
     public  String reverseVowels(String s) {
-        Map<Integer,Character> locations = new HashMap<>();
-        List<Integer> locs = new ArrayList<>();
+        List<Integer> Indices = new ArrayList<>();
+        List<Character> vowels = new ArrayList<>();
         char[] stringInChars= new char[s.length()];
         for(int i=0; i<s.length(); i++){
             char x = s.charAt(i);
             stringInChars[i]=x;
-            if(x=='a' ||x=='e'||x=='i'||x=='o'||x=='u'){
-                locs.add(i);
-                locations.put(i,x);
+            if(x=='a' ||x=='e'||x=='i'||x=='o'||x=='u'||x=='A' ||x=='E'||x=='I'||x=='O'||x=='U'){
+                Indices.add(i);
+                vowels.add(x);
             }
         }
-        int size = locs.size()-1;
-        for(int i=0; i<s.length(); i++){
-            char x = s.charAt(i);
-            if(x=='a' ||x=='e'||x=='i'||x=='o'||x=='u'){
-                int vowel = locs.get(size);
-               stringInChars[i]=locations.get(vowel);
-               size--;
-            }
-            }
+        int vow = vowels.size()-1;
+        for (int j=0; j<Indices.size();j++){
+            int index1 = Indices.get(j);
+            stringInChars[index1] = vowels.get(vow);
+            vow--;
+        }
+
         return String.valueOf(stringInChars);
         }
     }
