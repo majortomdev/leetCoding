@@ -6,7 +6,7 @@ class Solution {
 
     public static void main(String[]args){
         Solution s = new Solution();
-        String reversed = s.reverseVowels("helloyou");
+        String reversed = s.reverseVowels("aeiou");
         System.out.println(reversed);
     }
     public  String reverseVowels(String s) {
